@@ -11,7 +11,7 @@ ARG BASE
 ARG BINDDN
 ARG BINDPW
 
-COPY *.diff ./
+COPY diffs/* ./
 COPY prepare.sh ./
 RUN bash prepare.sh
 
