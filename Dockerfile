@@ -12,8 +12,8 @@ ARG BINDDN
 ARG BINDPW
 
 COPY *.diff ./
-COPY prepare-nss.sh ./
-RUN bash prepare-nss.sh
+COPY prepare.sh ./
+RUN bash prepare.sh
 
 RUN ssh-keygen -A
 CMD nslcd && /usr/bin/sshd -D

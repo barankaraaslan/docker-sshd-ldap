@@ -1,3 +1,4 @@
+# NSS settings
 patch /etc/nsswitch.conf nsswitch.conf.diff
 patch /etc/nslcd.conf nslcd.conf.diff
 
@@ -7,3 +8,6 @@ sed -i "s@BINDDN@$BINDDN@" /etc/nslcd.conf
 sed -i "s@BINDPW@$BINDPW@" /etc/nslcd.conf 
 
 chmod 0600 /etc/nslcd.conf 
+
+# PAM settings
+patch /etc/pam.d/system-auth system-auth.diff

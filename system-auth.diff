@@ -1,0 +1,8 @@
+5a6
+> auth       sufficient                  pam_ldap.so
+15a17
+> account    sufficient                  pam_ldap.so
+20a23
+> password   sufficient                  pam_ldap.so
+25a29
+> session    optional                    pam_ldap.so
