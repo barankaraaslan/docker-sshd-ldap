@@ -1,0 +1,8 @@
+4,6c4,6
+< passwd: files systemd
+< group: files [SUCCESS=merge] systemd
+< shadow: files
+---
+> passwd: files ldap
+> group: files ldap
+> shadow: files ldap

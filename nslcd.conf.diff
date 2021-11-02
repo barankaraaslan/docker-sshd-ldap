@@ -1,0 +1,16 @@
+18c18
+< uri ldap://127.0.0.1/
+---
+> uri URI
+25c25
+< base dc=example,dc=com
+---
+> base BASE
+29c29
+< #binddn cn=proxyuser,dc=example,dc=com
+---
+> binddn BINDDN
+34c34
+< #bindpw secret
+---
+> bindpw BINDPW
