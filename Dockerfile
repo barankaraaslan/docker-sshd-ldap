@@ -3,7 +3,7 @@ RUN pacman -Syu --noconfirm
 
 FROM updated 
 RUN pacman -S --noconfirm openssh patch nss-pam-ldapd openldap
-ARG asdad=unknown
+
 WORKDIR /tmp/image_buildfiles
 
 ARG URI
