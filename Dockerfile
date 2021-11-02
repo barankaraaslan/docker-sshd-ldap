@@ -5,15 +5,17 @@ FROM updated
 RUN pacman -S --noconfirm openssh patch nss-pam-ldapd openldap
 
 WORKDIR /tmp/image_buildfiles
-
-ARG URI
-ARG BASE
-ARG BINDDN
-ARG BINDPW
-
 COPY diffs/* ./
-COPY prepare.sh ./
-RUN bash prepare.sh
+
+RUN \
+    mv /etc/nslcd.conf /etc/nslcd.conf.base; \
+    \
+    patch /etc/nsswitch.conf nsswitch.conf.diff; \
+    patch /etc/nslcd.conf.base nslcd.conf.diff; \
+    patch /etc/pam.d/system-auth system-auth.diff
+
+COPY entrypoint.sh ./
 
 RUN ssh-keygen -A
-CMD nslcd && /usr/bin/sshd -D
+
+CMD bash entrypoint.sh
