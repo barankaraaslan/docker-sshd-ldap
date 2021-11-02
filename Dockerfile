@@ -16,4 +16,4 @@ COPY prepare-nss.sh ./
 RUN bash prepare-nss.sh
 
 RUN ssh-keygen -A
-CMD nslcd --nofork && /usr/sbin/sshd -D -e
+CMD nslcd && /usr/bin/sshd -D
