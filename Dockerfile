@@ -6,14 +6,12 @@ RUN pacman -S --noconfirm openssh patch nss-pam-ldapd openldap
 
 WORKDIR /tmp/image_buildfiles
 
-ARG URI
-ARG BASE
-ARG BINDDN
-ARG BINDPW
-
 COPY diffs/* ./
-COPY prepare.sh ./
-RUN bash prepare.sh
+COPY build.sh ./
+RUN bash build.sh
 
-RUN ssh-keygen -A
-CMD nslcd && /usr/bin/sshd -D
+WORKDIR /
+ARG ADSA
+COPY entrypoint.sh ./
+
+CMD ./entrypoint.sh
