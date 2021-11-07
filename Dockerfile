@@ -11,7 +11,6 @@ COPY build.sh ./
 RUN bash build.sh
 
 WORKDIR /
-ARG ADSA
 COPY entrypoint.sh ./
 
 CMD ./entrypoint.sh
