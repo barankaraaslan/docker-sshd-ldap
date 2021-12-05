@@ -19,5 +19,6 @@ configs:
   LDAP_BINDDN:
     file: ./LDAP_BINDDN.txt
 secrets:
+  # TODO: Change file permissions, currently other users can read
   LDAP_BINDPW:
     file: ./LDAP_BINDPW.txt
